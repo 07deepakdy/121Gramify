@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">121Gramify</string>
+    <string name="title_activity_intro_screen">IntroScreen</string>
+    <string name="default_web_client_id">103020176008-c274l016c2k42tmj8m2glhuvf8qv7f5u.apps.googleusercontent.com</string>
+    <string name="title_activity_article_screen">ArticleScreen</string>
+
+</resources>

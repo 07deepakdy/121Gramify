@@ -25,6 +25,8 @@ import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun RecentSearchSection(recentWords: List<String>) {
+
+    // new Changes
     if (recentWords.isEmpty()) return
 
     Card(

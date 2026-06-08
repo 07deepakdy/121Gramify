@@ -2,6 +2,7 @@ package com.english.android.englishlearning.presentation.dashboard.screen.home
 
 
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,6 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -18,10 +21,15 @@ import com.english.android.englishlearning.presentation.dashboard.screen.home.ui
 import com.english.android.englishlearning.presentation.dashboard.screen.home.ui.HeaderSection
 import com.english.android.englishlearning.presentation.dashboard.screen.home.ui.PremiumBanner
 import com.english.android.englishlearning.presentation.dashboard.screen.home.ui.WordOfDayCard
+import com.english.android.englishlearning.presentation.dashboard.screen.home.viewmodel.HomeViewModel
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    viewModel: HomeViewModel
+) {
+  val state by viewModel.uiState.collectAsState()
 
     LazyColumn(
         modifier = Modifier
@@ -41,7 +49,12 @@ fun HomeScreen() {
         }
 
         item {
-            WordOfDayCard()
+            state.wordOfDay?.let { word ->
+
+                WordOfDayCard(
+                    word = word
+                )
+            }
         }
 
         item {

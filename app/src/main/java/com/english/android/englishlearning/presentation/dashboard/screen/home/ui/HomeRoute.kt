@@ -3,17 +3,21 @@ package com.english.android.englishlearning.presentation.dashboard.screen.home.u
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.english.android.englishlearning.presentation.dashboard.screen.home.HomeScreen
 import com.english.android.englishlearning.presentation.dashboard.screen.home.viewmodel.HomeViewModel
+import com.english.android.englishlearning.presentation.dashboard.screen.home.viewmodel.HomeViewModelFactory
 import com.english.android.englishlearning.presentation.dashboard.utils.DashboardDestination
 
 @Composable
 fun HomeRoute(
     navController: NavController,
-    viewModel: HomeViewModel = viewModel()
+    viewModel: HomeViewModel = viewModel(
+        factory = HomeViewModelFactory(LocalContext.current)
+    )
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -32,8 +36,5 @@ fun HomeRoute(
         }
     }
 
-    HomeScreen()
+    HomeScreen(viewModel = viewModel)
 }
-
-
-

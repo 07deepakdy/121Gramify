@@ -53,8 +53,6 @@ dependencies {
     implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.navigation.compose)
 
-    /* Google sign in */
-
     // Import the BoM for the Firebase platform
     implementation(platform(libs.firebase.bom))
 
@@ -70,6 +68,13 @@ dependencies {
     // Lottie
     implementation(libs.lottie.compose)
     implementation(libs.androidx.room.ktx)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.coroutines.android)
+    implementation(libs.okhttp.logging)
 
 
 
